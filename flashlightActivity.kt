@@ -7,13 +7,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val torchServiceMode = false
+    val torchServiceMode = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(torchServiceMode)
+        if(torchServiceMode)  // startService 에 의한 기능 also 위젯 구조를 위함
             torchByService()
         else
             torchByActivity()
