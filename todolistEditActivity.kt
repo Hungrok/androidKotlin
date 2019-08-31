@@ -21,10 +21,11 @@ class EditActivity : AppCompatActivity() {
 
         // MainActivity 에서 보낸 Intent 내용으로 추가모드 / 갱신모드 판단
         val id = intent.getLongExtra("id",-1L)
-        if(id==-1L) insertMode() // ListView 에서 특정 item click
-        else updateMode(id) // FAB(추가) 에서 click
+        if(id==-1L) insertMode() // MainActivity - FAB (add)
+        else updateMode(id) // ListView 에서 특정 item click
 
         // 이벤트 리스너객체 등록 (람다식 익명함수)
+        // CalendarView 는 UI 만 지니지, time 객체는 별도로 관리되어야 한다
         calendarView.setOnDateChangeListener{ view, year, month, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
             calendar.set(Calendar.MONTH, month)
